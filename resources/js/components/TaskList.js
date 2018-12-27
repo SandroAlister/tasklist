@@ -4,7 +4,7 @@ import axios from 'axios';
 export default class TaskList extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { tasks: [] };
+        this.state = { tasks: [], timerId: null };
     }
 
     componentWillMount() {
@@ -18,9 +18,25 @@ export default class TaskList extends React.Component {
                     duration: task.duration,
                     start: new Date(task.created_at * 1000),
                     finish: this.getFinish(task.created_at * 1000, task.duration),
-                    status: task.status
+                    status: task.finished ?
+                        'Завершенная' :
+                        new Date() > this.getFinish(task.created_at * 1000, task.duration) ?
+                        'Просроченная' :
+                        'Актуальная'
                 }
             ]})));
+
+        const timerId = setInterval(() => {
+            this.state.tasks.map((task, index) => {
+                if (new Date() > task.finish && task.status != 'Завершенная') this.state.tasks[index].status = 'Просроченная';
+            });
+            this.forceUpdate();
+        }, 1000);
+        this.setState({ timerId: timerId });
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.state.timerId);
     }
 
     getFinish(milliseconds, minutes) {
@@ -38,6 +54,7 @@ export default class TaskList extends React.Component {
         if (day < 10) day = '0' + day;
         if (month < 10) month = '0' + month;
         if (year < 10) year = '0' + year;
+        if (minutes < 10) minutes = '0' + minutes;
         return hours + ':' + minutes + ' ' + day + '.' + month + '.' + year;
     }
 
@@ -61,26 +78,9 @@ export default class TaskList extends React.Component {
         this.forceUpdate();
     }
 
-    updateTaskList() {
-        axios
-            .get('/api/task')
-            .then(response => response.data.map(task => this.setState({ tasks: [
-                    ...this.state.tasks,
-                    {
-                        id: task.id,
-                        target: task.target,
-                        duration: task.duration,
-                        start: new Date(task.created_at * 1000),
-                        finish: this.getFinish(task.created_at * 1000, task.duration),
-                        status: task.status
-                    }
-                ]})));
-    }
-
     render() {
         return (
             <div>
-                <button onClick={this.updateTaskList}>Обновить</button>
                 <div className="table-responsive">
                     <table className="table">
                         <thead >
@@ -101,9 +101,21 @@ export default class TaskList extends React.Component {
                                 <td>{this.getDate(task.finish)}</td>
                                 <td>{task.duration}</td>
                                 <td>{task.status}</td>
-                                <td><button onClick={() => this.editTask(task.id)}>Редактировать</button></td>
-                                <td><button onClick={() => this.deleteTask(task.id)}>Удалить</button></td>
-                                <td><button onClick={() => this.finishTask(task.id)}>Завершить</button></td>
+                                <td>{task.status != 'Завершенная' ? <button
+                                    className="btn btn-secondary"
+                                    onClick={() => this.editTask(task.id)}
+                                >Редактировать</button> : ''
+                                }</td>
+                                <td><button
+                                    className="btn btn-danger"
+                                    onClick={() => this.deleteTask(task.id)}
+                                >Удалить</button></td>
+                                <td>{task.status == 'Актуальная' ?
+                                    <button
+                                        className="btn btn-success"
+                                        onClick={() => this.finishTask(task.id)}
+                                    >Завершить</button> : ''
+                                }</td>
                             </tr>
                         ))}
                         </tbody>

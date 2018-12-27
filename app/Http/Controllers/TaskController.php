@@ -18,7 +18,7 @@ class TaskController extends Controller
         $task = new Task([
             'target' => $request->get('target'),
             'duration' => $request->get('duration'),
-            'status' => 'Актуальная'
+            'finished' => false
         ]);
         $task->save();
     }

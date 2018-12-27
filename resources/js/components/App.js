@@ -11,13 +11,14 @@ export default class App extends Component {
         return (
             <BrowserRouter>
                 <div>
-                    <Link to="/">Главная</Link>
-                    <Link to="/add">Добавить</Link>
+                    <Link to="/" className="btn btn-link">Главная</Link>
+                    <Link to="/add" className="btn btn-link">Добавить</Link>
                     <Switch>
                         <Route path="/" exact component={TaskList}/>
                         <Route path="/add" exact component={AddTask}/>
                         <Route path="/error404" exact component={NotFound}></Route>
                         <Route path="/:id" exact render={p => <Task{...p}/>}/>
+                        <Route component={NotFound}/>
                     </Switch>
                 </div>
             </BrowserRouter>

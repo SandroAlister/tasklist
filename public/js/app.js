@@ -64310,18 +64310,33 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u0426\u0435\u043B\u044C", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, "\u0426\u0435\u043B\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "form-control",
         name: "target",
         value: this.state.target,
         onChange: this.input,
         required: true
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "form-control",
         name: "duration",
         value: this.state.duration,
         onChange: this.input,
         required: true,
         type: "number"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-success",
         onClick: this.add
       }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"));
     }
@@ -64394,9 +64409,11 @@ function (_Component) {
     key: "render",
     value: function render() {
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["BrowserRouter"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/"
+        to: "/",
+        className: "btn btn-link"
       }, "\u0413\u043B\u0430\u0432\u043D\u0430\u044F"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/add"
+        to: "/add",
+        className: "btn btn-link"
       }, "\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Switch"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
         path: "/",
         exact: true,
@@ -64415,6 +64432,8 @@ function (_Component) {
         render: function render(p) {
           return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_Task__WEBPACK_IMPORTED_MODULE_6__["default"], p);
         }
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
+        component: _NotFound__WEBPACK_IMPORTED_MODULE_5__["default"]
       }))));
     }
   }]);
@@ -64444,7 +64463,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 function NotFound() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "404");
+  var style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    fontSize: '200px'
+  };
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: style
+  }, "404");
 }
 
 /***/ }),
@@ -64458,7 +64486,7 @@ function NotFound() {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return DataUser; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Task; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -64486,17 +64514,17 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 
 
 
-var DataUser =
+var Task =
 /*#__PURE__*/
 function (_React$Component) {
-  _inherits(DataUser, _React$Component);
+  _inherits(Task, _React$Component);
 
-  function DataUser(props) {
+  function Task(props) {
     var _this;
 
-    _classCallCheck(this, DataUser);
+    _classCallCheck(this, Task);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(DataUser).call(this, props));
+    _this = _possibleConstructorReturn(this, _getPrototypeOf(Task).call(this, props));
     _this.state = {
       target: '',
       duration: ''
@@ -64506,7 +64534,7 @@ function (_React$Component) {
     return _this;
   }
 
-  _createClass(DataUser, [{
+  _createClass(Task, [{
     key: "componentWillMount",
     value: function componentWillMount() {
       var _this2 = this;
@@ -64542,24 +64570,39 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u0426\u0435\u043B\u044C", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, "\u0426\u0435\u043B\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "form-control",
         name: "target",
         value: this.state.target,
         onChange: this.input,
         required: true
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C", react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group mb-3"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "input-group-prepend"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        className: "input-group-text"
+      }, "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+        className: "form-control",
         name: "duration",
         value: this.state.duration,
         onChange: this.input,
         required: true,
         type: "number"
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn btn-success",
         onClick: this.update
       }, "\u0418\u0437\u043C\u0435\u043D\u0438\u0442\u044C"));
     }
   }]);
 
-  return DataUser;
+  return Task;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
 
@@ -64621,7 +64664,8 @@ function (_React$Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(TaskList).call(this, props));
     _this.state = {
-      tasks: []
+      tasks: [],
+      timerId: null
     };
     return _this;
   }
@@ -64640,11 +64684,26 @@ function (_React$Component) {
               duration: task.duration,
               start: new Date(task.created_at * 1000),
               finish: _this2.getFinish(task.created_at * 1000, task.duration),
-              status: task.status
+              status: task.finished ? 'Завершенная' : new Date() > _this2.getFinish(task.created_at * 1000, task.duration) ? 'Просроченная' : 'Актуальная'
             }])
           });
         });
       });
+      var timerId = setInterval(function () {
+        _this2.state.tasks.map(function (task, index) {
+          if (new Date() > task.finish && task.status != 'Завершенная') _this2.state.tasks[index].status = 'Просроченная';
+        });
+
+        _this2.forceUpdate();
+      }, 1000);
+      this.setState({
+        timerId: timerId
+      });
+    }
+  }, {
+    key: "componentWillUnmount",
+    value: function componentWillUnmount() {
+      clearInterval(this.state.timerId);
     }
   }, {
     key: "getFinish",
@@ -64664,6 +64723,7 @@ function (_React$Component) {
       if (day < 10) day = '0' + day;
       if (month < 10) month = '0' + month;
       if (year < 10) year = '0' + year;
+      if (minutes < 10) minutes = '0' + minutes;
       return hours + ':' + minutes + ' ' + day + '.' + month + '.' + year;
     }
   }, {
@@ -64694,52 +64754,33 @@ function (_React$Component) {
       this.forceUpdate();
     }
   }, {
-    key: "updateTaskList",
-    value: function updateTaskList() {
-      var _this5 = this;
-
-      axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/task').then(function (response) {
-        return response.data.map(function (task) {
-          return _this5.setState({
-            tasks: [].concat(_toConsumableArray(_this5.state.tasks), [{
-              id: task.id,
-              target: task.target,
-              duration: task.duration,
-              start: new Date(task.created_at * 1000),
-              finish: _this5.getFinish(task.created_at * 1000, task.duration),
-              status: task.status
-            }])
-          });
-        });
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var _this6 = this;
+      var _this5 = this;
 
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-        onClick: this.updateTaskList
-      }, "\u041E\u0431\u043D\u043E\u0432\u0438\u0442\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "table-responsive"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("table", {
         className: "table"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("thead", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u0426\u0435\u043B\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u041D\u0430\u0447\u0430\u043B\u043E"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u041A\u043E\u043D\u0435\u0446"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u044C"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", null, "\u0421\u0442\u0430\u0442\u0443\u0441"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("th", {
         colSpan: "3"
       }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tbody", null, this.state.tasks.map(function (task) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.target), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, _this6.getDate(task.start)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, _this6.getDate(task.finish)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.duration), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.status), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("tr", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.target), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, _this5.getDate(task.start)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, _this5.getDate(task.finish)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.duration), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.status), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.status != 'Завершенная' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-secondary",
           onClick: function onClick() {
-            return _this6.editTask(task.id);
+            return _this5.editTask(task.id);
           }
-        }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "\u0420\u0435\u0434\u0430\u043A\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C") : ''), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-danger",
           onClick: function onClick() {
-            return _this6.deleteTask(task.id);
+            return _this5.deleteTask(task.id);
           }
-        }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        }, "\u0423\u0434\u0430\u043B\u0438\u0442\u044C")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("td", null, task.status == 'Актуальная' ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+          className: "btn btn-success",
           onClick: function onClick() {
-            return _this6.finishTask(task.id);
+            return _this5.finishTask(task.id);
           }
-        }, "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044C")));
+        }, "\u0417\u0430\u0432\u0435\u0440\u0448\u0438\u0442\u044C") : ''));
       })))));
     }
   }]);

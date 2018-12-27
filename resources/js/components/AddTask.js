@@ -25,30 +25,36 @@ export default class AddTask extends React.Component {
     render() {
         return (
             <form>
-                <div>
-                    <label>
-                        Цель
-                        <input
-                            name="target"
-                            value={this.state.target}
-                            onChange={this.input}
-                            required
-                        />
-                    </label>
+
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Цель</span>
+                    </div>
+                    <input
+                        className="form-control"
+                        name="target"
+                        value={this.state.target}
+                        onChange={this.input}
+                        required
+                    />
                 </div>
-                <div>
-                    <label>
-                        Продолжительность
-                        <input
-                            name="duration"
-                            value={this.state.duration}
-                            onChange={this.input}
-                            required
-                            type="number"
-                        />
-                    </label>
+
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Продолжительность</span>
+                    </div>
+                    <input
+                        className="form-control"
+                        name="duration"
+                        value={this.state.duration}
+                        onChange={this.input}
+                        required
+                        type="number"
+                    />
                 </div>
-                <button onClick={this.add}>Добавить</button>
+
+                <button className="btn btn-success" onClick={this.add}>Добавить</button>
+
             </form>
         );
     }

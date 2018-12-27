@@ -12,7 +12,7 @@ class TasksTableSeeder extends Seeder
             Task::create([
                 'target' => 'Цель ' . $i,
                 'duration' => random_int(1, 300),
-                'status' => 'Актуальная'
+                'finished' => false
             ]);
         }
     }

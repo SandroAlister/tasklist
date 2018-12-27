@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-export default class DataUser extends React.Component {
+export default class Task extends React.Component {
     constructor(props) {
         super(props);
         this.state = { target: '', duration: ''};
@@ -40,30 +40,36 @@ export default class DataUser extends React.Component {
     render() {
         return (
             <form>
-                <div>
-                    <label>
-                        Цель
-                        <input
-                            name="target"
-                            value={this.state.target}
-                            onChange={this.input}
-                            required
-                        />
-                    </label>
+
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Цель</span>
+                    </div>
+                    <input
+                        className="form-control"
+                        name="target"
+                        value={this.state.target}
+                        onChange={this.input}
+                        required
+                    />
                 </div>
-                <div>
-                    <label>
-                        Продолжительность
-                        <input
-                            name="duration"
-                            value={this.state.duration}
-                            onChange={this.input}
-                            required
-                            type="number"
-                        />
-                    </label>
+
+                <div className="input-group mb-3">
+                    <div className="input-group-prepend">
+                        <span className="input-group-text">Продолжительность</span>
+                    </div>
+                    <input
+                        className="form-control"
+                        name="duration"
+                        value={this.state.duration}
+                        onChange={this.input}
+                        required
+                        type="number"
+                    />
                 </div>
-                <button onClick={this.update}>Изменить</button>
+
+                <button className="btn btn-success" onClick={this.update}>Изменить</button>
+
             </form>
         );
     }
